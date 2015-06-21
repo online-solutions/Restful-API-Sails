@@ -10,7 +10,8 @@
 module.exports = function (req, res, next) {
 
     // By pass url
-    var byPassUrl = '/user';
+    var byPassUrl = '/user|'
+                        +'/login';
 
     // Get request uri
     if (req.method != 'options' && req.method != 'OPTIONS' && !req.isSocket){
