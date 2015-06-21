@@ -17,10 +17,16 @@
 
 module.exports = function badRequest(data, options) {
 
+  var js2xmlparser = require("js2xmlparser");
+
   // Get access to `req`, `res`, & `sails`
   var req = this.req;
   var res = this.res;
   var sails = req._sails;
+  var dataWrapper = {
+    status: 'error',
+    message: data
+  };
 
   // Set status code
   res.status(400);
@@ -39,8 +45,13 @@ module.exports = function badRequest(data, options) {
   }
 
   // If the user-agent wants JSON, always respond with JSON
-  if (req.wantsJSON) {
-    return res.jsonx(data);
+  if(req.headers.accept.indexOf('text/xml') > -1){
+    console.log("Response XML");
+    res.set('Content-Type', 'text/xml');
+    return res.send(js2xmlparser("root" ,dataWrapper));
+  } else if (req.wantsJSON) {
+    console.log("Response JSON");
+    return res.jsonx(dataWrapper);
   }
 
   // If second argument is a string, we take that to mean it refers to a view.

@@ -34,7 +34,29 @@ module.exports.routes = {
 
   '/': {
     view: 'homepage'
-  }
+  },
+
+  // user
+  'post /login': 'UserController.validateUser',
+  'get /user': 'UserController.getAllUser',
+  'post /user': 'UserController.createUser',
+  // 'options /user': 'UserController.getOptions',
+  // 'put /user': 'UserController.updateUser',
+  // 'delete /user': 'UserController.deleteUser',
+
+  // category
+  'get /category': 'CategoryController.findAllCategory',
+  'get /category/:id?': 'CategoryController.findCategory',
+  'post /category': 'CategoryController.createCategory',
+  'put /category/:id?': 'CategoryController.updateCategory',
+  'delete /category/:id?': 'CategoryController.deleteCategory',
+
+  // product
+  'get /product': 'ProductController.findAllProduct',
+  'get /product/:id?': 'ProductController.findProduct',
+  'post /product': 'ProductController.createProduct',
+  'put /product/:id?': 'ProductController.updateProduct',
+  'delete /product/:id?': 'ProductController.deleteProduct',
 
   /***************************************************************************
   *                                                                          *

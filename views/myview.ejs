@@ -1,0 +1,105 @@
+<div class="wrapper">
+        <div class="navbar navbar-static-top navbar-inverse">
+            <div class="container">
+                <span>
+                                <a class='navbar-brand' rel="nofollow" href='http://www.sailsjs.org'>
+                                    RESTFUL API <span class="version">0.0.1</span>
+                </a>
+                </span>
+                <ul class="nav navbar-nav pull-right">
+                </ul>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <ul class="breadcrumb">
+
+                <li><a href="#">Category</a>
+                </li>
+
+                <!-- <li class="active"><a href="/vehicle/download/1/1">Download</a>
+                </li> -->
+
+            </ul>
+
+            <!-- Content -->
+            <div id="content">
+
+
+                <form id="get-form" class="pull-right">
+                    <fieldset>
+                        <div class="btn-group format-selection">
+                            <a class="btn btn-primary js-tooltip" href='/vehicle/download/1/1' rel="nofollow" title="Make a GET request on the Download resource">GET</a>
+
+                            <button class="btn btn-primary dropdown-toggle js-tooltip" data-toggle="dropdown" title="Specify a format for the GET request">
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+
+                                <li>
+                                    <a class="js-tooltip format-option" href='/vehicle/download/1/1?format=json' rel="nofollow" title="Make a GET request on the Download resource with the format set to `json`">
+                                                json
+                                            </a>
+                                </li>
+
+                                <li>
+                                    <a class="js-tooltip format-option" href='/vehicle/download/1/1?format=api' rel="nofollow" title="Make a GET request on the Download resource with the format set to `api`">
+                                                api
+                                            </a>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <form class="button-form" action="/vehicle/download/1/1" method="POST">
+                    <input type='hidden' name='csrfmiddlewaretoken' value='fOLHOOEgrOULHslhapxRgxGknZGxJdJL' />
+                    <input type="hidden" name="_method" value="OPTIONS" />
+                    <button class="btn btn-primary js-tooltip" title="Make an OPTIONS request on the Download resource">OPTIONS</button>
+                </form>
+
+
+
+
+                <div class="content-main">
+                    <div class="page-header">
+                        <h1>Download</h1>
+                    </div>
+                    <div style="float:left">
+
+                    </div>
+
+                    <div class="request-info" style="clear: both">
+                        <pre class="prettyprint"><b>GET</b> /vehicle/download/1/1</pre>
+                    </div>
+                    <div class="response-info">
+
+                        <pre class="prettyprint"><span class="meta nocode"><b>HTTP <%= info.code %></b>
+<b>Content-Type:</b> <span class="lit"><%= info.contentType %></span>
+<b>Access-Control-Allow-Origin:</b> <span class="lit">*</span>
+<b>Vary:</b> <span class="lit">Accept</span>
+<b>Allow:</b> <span class="lit"><%= info.accept %></span>
+</span>
+<% if (info.format == 'json') { %>
+{
+    &quot;status&quot;: &quot;<%= data.status %>&quot;,
+    &quot;message&quot;: &quot;<%= data.message %>&quot;,
+    &quot;data&quot;: <%= JSON.stringify(data.data) %>
+}
+<% } else { %>
+<%= data%>
+<% } %>
+
+</pre>
+                    </div>
+                </div>
+
+
+            </div>
+            <!-- END Content -->
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- ./wrapper -->

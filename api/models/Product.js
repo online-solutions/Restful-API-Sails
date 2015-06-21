@@ -15,7 +15,7 @@ module.exports = {
   	},
   	image: 'STRING',
   	catId: {
-  		model: 'category',
+  		model: 'Category',
   		columnName: 'cat_id'
   	}
   }

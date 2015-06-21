@@ -10,7 +10,7 @@ module.exports = {
   attributes: {
   	name: 'STRING',
   	products: {
-  		collection: 'product',
+  		collection: 'Product',
   		via: 'catId'
   	}
   }
